@@ -1,6 +1,8 @@
 #include "sudokucell.hpp"
 #include "string"
 
+using namespace std;
+
 SudokuCell::SudokuCell(int x, int y, int size)
     :Widget(x, y, sizex, sizey), value(0), conflict(false), selected(false), fixed(false) {}
 
@@ -25,3 +27,25 @@ void SudokuCell::handle_event(event ev){
         value = 0;
     }
 }
+
+void SudokuCell::draw(){
+    if(fixed) {
+        gout << move_to(_x, _y) << color(200,200,200) << box(_size_x, _size_y);
+    }
+    else if(conflict){
+        gout << move_to(_x,_y) << color(255, 0, 0) << box(_size_x, _size_y);
+    }
+    else if(selected){
+        gout << move_to(_x, _y) << color(180, 180, 255) << box(_size_x, _size_y);
+    }
+    else{
+        gout << move_to(_x, _y) << color(255, 255, 255) << box(_size_x, _size_y);
+    }
+
+    if(value != 0){
+        gout << move_to(_x + _size_x/2 - gout.twidht(to_string(value))/2,
+                        _y + _size_y/2 + gout.cascent()/2 - 2)
+                        <<color(0,0,0) << text(to_string(value));
+    }
+}
+
