@@ -47,6 +47,12 @@
 		</Linker>
 		<Unit filename="graphicslib/graphics.cpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="sudokuboard.cpp" />
+		<Unit filename="sudokuboard.hpp" />
+		<Unit filename="sudokucell.cpp" />
+		<Unit filename="sudokucell.hpp" />
+		<Unit filename="widget.cpp" />
+		<Unit filename="widget.hpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
