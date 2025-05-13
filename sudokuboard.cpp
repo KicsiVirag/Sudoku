@@ -169,3 +169,10 @@ void SudokuBoard::generate_random_board(){
         cells[idx].set_fixed(false);
     }
 }
+
+bool SudokuBoard::check_win() const{
+    for(const auto& c : cells){
+        if(c.get_int_value() == 0 || c.has_conflict()) return false;
+    }
+    return true;
+}
