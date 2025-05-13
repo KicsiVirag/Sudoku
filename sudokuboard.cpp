@@ -3,6 +3,9 @@
 #include "ctime"
 #include "cstdlib"
 
+
+using namespace std;
+
 SudokuBoard::SudokuBoard(){
     const int SIZE = 9;
     for(int row = 0; row < SIZE; ++row){
@@ -54,5 +57,79 @@ void SudokuBoard::check_conflicts(){
                 }
             }
         }
+    }
+}
+
+SudokuBoard::draw(){
+    const int gap = 4;
+    const int cell_size= 40;
+    const spacing = 1;
+    const int block_size = 3;
+
+    for(int row=0;row<9;++row){
+        for(int col = 0; col<9;++col){
+            int block_row = row /3;
+            int block_col = col/3;
+
+            int x_offset = col *(cell_size+spacing) + block_col * gap +10;
+            int y_offset = row*(cell_size+spacing) +block_row * gap;
+
+            int index = row*9+col;
+            cells[index].set_position(x_offset,y_offset);
+            cells[index].set_size(cell_size, cell_size);
+            cells[index].draw();
+        }
+    }
+
+    for(int i= 0;i<=3;++i){
+        int offset = i*3*(cell_size+spacing)+i*gap+10;
+        gout << move_to(offset, 10)
+             << color(0,0,0) << box(2,9*(cell_size+spacing)+2*gap);
+        gout << move_to(10, offset)
+             << color(0,0,0) << box(9*(cell_size+spacing)+2*gap, 2);
+    }
+}
+
+bool is_valid(int board[9][9], int row, int col, int num){
+    for(int i = 0;i <9 ;++i){
+        if(board[row][i] == num || board [i][col] == num){
+            return false;
+        }
+    }
+    int startRow = row - row%3, startCol = col - col%3;
+    for(int i = 0;  i< 3; ++i){
+        for(int j = 0; j <3; ++j){
+            if(board[startRow +i][startCol+j]==num){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+bool solve(int board[9][9]){
+    for(int row=0;row<9; ++row){
+        for(int col=0; col<9;++col){
+            if(board[row][col]==0){
+                vector<int> nums= {1,2,3,4,5,6,7,8,9};
+                random_shuffle(nums.begin(),nums:end());
+                for(int num:nums){
+                    if(is_valid(board,row,col,num)){
+                        board[row][col]=num;
+                        if(solve(board)) return true;
+                        board[row][col]=0;
+                    }
+                }
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+void random_shuffle_custom(vector<int>& vec){
+    for(size_t i = vec.size() -1; i>0;--i){
+        int j = rand() % (i+1);
+        swap(vec[i],vec[j]);
     }
 }

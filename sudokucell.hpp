@@ -1,7 +1,7 @@
 #ifndef SUDOKUCELL_HPP_INCLUDED
 #define SUDOKUCELL_HPP_INCLUDED
 
-#includes "widget.hpp"
+#include "widget.hpp"
 
 using namespace genv;
 
