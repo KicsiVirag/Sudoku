@@ -133,3 +133,39 @@ void random_shuffle_custom(vector<int>& vec){
         swap(vec[i],vec[j]);
     }
 }
+
+void SudokuBoard::generate_random_board(){
+    int board[9][9]= {0};
+
+    solve(board);
+
+    vector<int> numbers = {1,2,3,4,5,6,7,8,9};
+    random_shuffle_custom(numbers);
+
+    int new_board[9][9];
+    for(int row = 0; row <9 ; ++row){
+        for(int col = 0; col <9; ++col){
+            int original_value = board[row][col];
+            new_board[row][col] = (original_value != 0) ? numbers[original_value -1] : 0;
+        }
+    }
+
+    for(int i =0;i<81;++i){
+        int row = i/9;
+        int col = i%9;
+        cells[i].set_value(new_board[row][col]);
+        cells[i].set_fixed(true);
+    }
+
+    vector<int> indices(81);
+    for(int i = 0; i<81; ++i){
+        indices[i]=i;
+    }
+    random_shuffle_custom(indices);
+
+    for(int i = 0; i <40; ++i){
+        int idx = indices[i];
+        cells[idx].set_value(0);
+        cells[idx].set_fixed(false);
+    }
+}
