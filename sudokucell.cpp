@@ -53,13 +53,17 @@ int SudokuCell::get_int_value() const {
     return value;
 }
 
-int SudokuCell::set_value(int v) {
+void SudokuCell::set_value(int v) {
     value = v;
 }
 
-int SudokuCell::set_position(int x, int y){
+void SudokuCell::set_position(int x, int y){
     _x=x;
     _y=y;
+}
+
+void SudokuCell::set_fixed(bool f){
+    fixed = f;
 }
 
 void SudokuCell::set_size(int sx, int sy){

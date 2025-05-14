@@ -423,9 +423,10 @@
 1747252754 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\widget.cpp
 	"widget.hpp"
 
-1747252935 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\sudokuboard.cpp
+1747253367 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\sudokuboard.cpp
 	"sudokuboard.hpp"
 	"algorithm"
 	"ctime"
+	"random"
 	"cstdlib"
 
