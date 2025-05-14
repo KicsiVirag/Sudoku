@@ -17,7 +17,7 @@ public:
     bool has_conflict() const ;
     void handle_event(event ev) override;
     void draw() override;
-    int get_int_value const override;
+    int get_int_value() const override;
     void set_value(int v);
     void set_fixed(bool f);
     void set_position(int x, int y);

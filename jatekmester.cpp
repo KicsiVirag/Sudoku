@@ -12,18 +12,18 @@ void JatekMester::run(){
     State state = MENU;
     event ev;
 
-    gout.loaded_font("Liberation Sans Bold", 24, true);
+    gout.load_font("Liberation Sans Bold", 24, true);
 
     while(running && gin >> ev){
         switch(state){
             case MENU: {
 
-                gout << mevo_to(0, 0) << color(240, 240, 245) << box(width, height);
+                gout << move_to(0, 0) << color(240, 240, 245) << box(width, height);
 
                 string title = "SUDOKU";
                 int title_width = gout.twidth(title);
                 gout << font("Liberation Sans Bold", 48)
-                     << move_to(width/2 - title_width/2, height/3);
+                     << move_to(width/2 - title_width/2, height/3)
                      << color(50, 50, 150) << text(title);
 
                 string instruction = "Nyomj meg egy billentyût a kezdéshez";

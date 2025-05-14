@@ -1,16 +1,7 @@
-#include "graphics.hpp"
+#include "jatekmester.hpp"
 
-using namespace genv;
-
-int main()
-{
-    gout.open(800,600);
-    gout << font("LiberationSans-Regular.ttf",20);
-    gout << text("hello world");
-    gout << refresh;
-    event ev;
-    while(gin >> ev)
-    {
-    }
+int main(){
+    JatekMester jm(600, 600);
+    jm.run();
     return 0;
 }

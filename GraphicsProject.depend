@@ -392,10 +392,40 @@
 
 1677893378 d:\egyetem\2.felev\programozás\3.projektleado\sudoku\graphicslib\keytbl.h
 
-1678015384 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\main.cpp
-	"graphics.hpp"
+1747252052 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\main.cpp
+	"jatekmester.hpp"
 
 1677893378 d:\egyetem\2.felev\programozás\3.projektleado\sudoku\include\graphics.hpp
 	<string>
 	<vector>
+
+1747250280 d:\egyetem\2.felev\programozás\3.projektleado\sudoku\jatekmester.hpp
+	"sudokuboard.hpp"
+	"graphics.hpp"
+
+1747036691 d:\egyetem\2.felev\programozás\3.projektleado\sudoku\sudokuboard.hpp
+	"sudokucell.hpp"
+	"vector"
+
+1747252144 d:\egyetem\2.felev\programozás\3.projektleado\sudoku\sudokucell.hpp
+	"widget.hpp"
+
+1747252593 d:\egyetem\2.felev\programozás\3.projektleado\sudoku\widget.hpp
+	"graphics.hpp"
+
+1747252660 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\jatekmester.cpp
+	"jatekmester.hpp"
+
+1747252745 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\sudokucell.cpp
+	"sudokucell.hpp"
+	"string"
+
+1747252754 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\widget.cpp
+	"widget.hpp"
+
+1747252935 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\sudokuboard.cpp
+	"sudokuboard.hpp"
+	"algorithm"
+	"ctime"
+	"cstdlib"
 

@@ -1,6 +1,7 @@
 #include "sudokuboard.hpp"
 #include "algorithm"
 #include "ctime"
+#include "random"
 #include "cstdlib"
 
 
@@ -35,7 +36,7 @@ void SudokuBoard::check_conflicts(){
 
             for(int i = 0; i<9;++i){
                 if(i != col && cells[row*9+i].get_int_value() == val){
-                    cells[row*9+i].set_conflict(true)
+                    cells[row*9+i].set_conflict(true);
                     cells[index].set_conflict(true);
                 }
                 if(i != row && cells[i*9+col].get_int_value() == val){
@@ -45,7 +46,7 @@ void SudokuBoard::check_conflicts(){
             }
             int box_row_start =(row/3)*3;
             int box_col_start = (col/3)*3;
-            for(int i = 0; i< 3;++j){
+            for(int i = 0; i< 3;++i){
                 for(int j = 0;j<3;++j){
                     int r = box_row_start+i;
                     int c = box_col_start+j;
@@ -60,10 +61,10 @@ void SudokuBoard::check_conflicts(){
     }
 }
 
-SudokuBoard::draw(){
+void SudokuBoard::draw(){
     const int gap = 4;
     const int cell_size= 40;
-    const spacing = 1;
+    const int spacing = 1;
     const int block_size = 3;
 
     for(int row=0;row<9;++row){
@@ -72,10 +73,10 @@ SudokuBoard::draw(){
             int block_col = col/3;
 
             int x_offset = col *(cell_size+spacing) + block_col * gap +10;
-            int y_offset = row*(cell_size+spacing) +block_row * gap;
+            int y_offset = row*(cell_size+spacing) +block_row * gap+10;
 
             int index = row*9+col;
-            cells[index].set_position(x_offset,y_offset);
+            cells[index].set_position(x_offset, y_offset);
             cells[index].set_size(cell_size, cell_size);
             cells[index].draw();
         }
@@ -112,7 +113,7 @@ bool solve(int board[9][9]){
         for(int col=0; col<9;++col){
             if(board[row][col]==0){
                 vector<int> nums= {1,2,3,4,5,6,7,8,9};
-                random_shuffle(nums.begin(),nums:end());
+                random_shuffle(nums.begin(),nums.end());
                 for(int num:nums){
                     if(is_valid(board,row,col,num)){
                         board[row][col]=num;
