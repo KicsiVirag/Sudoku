@@ -8,6 +8,8 @@
 using namespace std;
 
 SudokuBoard::SudokuBoard(){
+    srand(static_cast<unsigned int>(time(nullptr)));
+
     const int SIZE = 9;
     for(int row = 0; row < SIZE; ++row){
         for(int col =0; col <SIZE;++col){
@@ -65,7 +67,6 @@ void SudokuBoard::draw(){
     const int gap = 4;
     const int cell_size= 40;
     const int spacing = 1;
-    const int block_size = 3;
 
     for(int row=0;row<9;++row){
         for(int col = 0; col<9;++col){
@@ -83,11 +84,11 @@ void SudokuBoard::draw(){
     }
 
     for(int i= 0;i<=3;++i){
-        int offset = i*3*(cell_size+spacing)+i*gap+10;
-        gout << move_to(offset, 10)
-             << color(0,0,0) << box(2,9*(cell_size+spacing)+2*gap);
-        gout << move_to(10, offset)
-             << color(0,0,0) << box(9*(cell_size+spacing)+2*gap, 2);
+        int offset = 10+ i*(3*cell_size+2 *spacing+gap);
+        gout << move_to(offset - gap/2, 10)
+             << color(0,0,0) << box(2,9*cell_size+8*spacing+2*gap);
+        gout << move_to(10, offset - gap/2)
+             << color(0,0,0) << box(9*cell_size+8*spacing+2*gap, 2);
     }
 }
 
