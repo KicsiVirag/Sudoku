@@ -71,12 +71,18 @@ void JatekMester::run(){
 
                 gout << refresh;
 
-                if(ev.keycode == key_escape){
+                if (!(gin >> ev)) {
                     running = false;
+                    break;
                 }
-                else if(ev.type == ev_key &&& ev.keycode != 0){
-                    board = SudokuBoard();
-                    state = GAME;
+
+                if (ev.type == ev_key) {
+                    if (ev.keycode == key_escape) {
+                        running = false;
+                    } else {
+                        board = SudokuBoard();
+                        state = GAME;
+                    }
                 }
                 break;
             }

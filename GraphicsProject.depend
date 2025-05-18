@@ -413,7 +413,7 @@
 1747252593 d:\egyetem\2.felev\programozás\3.projektleado\sudoku\widget.hpp
 	"graphics.hpp"
 
-1747252660 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\jatekmester.cpp
+1747255946 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\jatekmester.cpp
 	"jatekmester.hpp"
 
 1747253720 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\sudokucell.cpp
@@ -423,7 +423,7 @@
 1747252754 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\widget.cpp
 	"widget.hpp"
 
-1747253933 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\sudokuboard.cpp
+1747254370 source:d:\egyetem\2.felev\programozás\3.projektleado\sudoku\sudokuboard.cpp
 	"sudokuboard.hpp"
 	"algorithm"
 	"ctime"
